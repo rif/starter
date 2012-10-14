@@ -1,7 +1,7 @@
 package main
 
 import (
-	"code.google.com/p/gorilla/sessions"
+	"github.com/gorilla/sessions"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -23,11 +23,10 @@ var (
 		CSS: list{
 			"bootstrap.min.css",
 			"bootstrap-responsive.min.css",
-			"main.css",
+			"screen.css",
 		},
 		JS: list{
 			"jquery.min.js",
-			"jquery-ui.min.js",
 			"bootstrap.js",
 		},
 		BaseTitle: appname,
