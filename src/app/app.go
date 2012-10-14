@@ -11,12 +11,14 @@ import (
 const (
 	appname   = "app"
 	store_key = "foobar"
+	base_path_env = "OPENSHIFT_REPO_DIR" // "APPROOT" for heroku
+	ip = "OPENSHIFT_INTERNAL_IP"
 )
 
 var (
 	mode          = tmplmgr.Development
-	assets_dir    = filepath.Join(env("APPROOT", ""), "assets")
-	template_dir  = filepath.Join(env("APPROOT", ""), "templates")
+	assets_dir    = filepath.Join(env(base_path_env, ""), "assets")
+	template_dir  = filepath.Join(env(base_path_env, ""), "templates")
 	base_template = tmplmgr.Parse(tmpl_root("base.tmpl"))
 	store         = sessions.NewCookieStore([]byte(store_key))
 	base_meta     = &Meta{
@@ -45,7 +47,7 @@ func main() {
 	handle("/", handle_index)
 	handle("/status/", handle_status)
 	serve_static("/assets", asset_root(""))
-	if err := http.ListenAndServe(":"+env("PORT", "9080"), nil); err != nil {
+	if err := http.ListenAndServe(env(ip, "")+":"+env("PORT", "8080"), nil); err != nil {
 		log.Fatal(err)
 	}
 }
