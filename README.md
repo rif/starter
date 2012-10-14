@@ -1,6 +1,6 @@
 # Starter App
 
-This is a basic Go web app suitable for deployment on [heroku][] or[openshift].
+This is a basic Go web app suitable for deployment on [heroku][] or [openshift].
 It uses the
 [heroku-buildpack-go][] buildpack to compile and deploy on the Cedar stack.
 
@@ -15,6 +15,10 @@ Clone this app into some directory and remove the git directory.
     $ PORT=9022 bin/srv
 
 Your app is now serving requests on http://localhost:9022
+
+For hot server rebuild and launch
+
+    $ ./watch_go.sh
 
 [heroku]: http://heroku.com
 [heroku-buildpack-go]: http://github.com/zeebo/heroku-buildpack-go
