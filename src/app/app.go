@@ -24,6 +24,7 @@ var (
 	base_meta     = &Meta{
 		CSS: list{
 			"bootstrap.min.css",
+			"bootstrap-navbar.css",
 			"bootstrap-responsive.min.css",
 			"screen.css",
 		},

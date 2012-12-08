@@ -22,6 +22,7 @@ func init_context(req *http.Request) (c *Context) {
 		Meta:    base_meta.Dup(),
 		Data:    d{},
 	}
+	c.Set("user", "hello")
 	return
 }
 

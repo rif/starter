@@ -1,1 +1,1 @@
-GOPATH=`pwd` go build -o bin/srv app && strip -s bin/srv
+GOPATH=`pwd` go build -o bin/app app && strip -s bin/app

@@ -1,11 +1,11 @@
 #! /usr/bin/env sh
+./build.sh
 
 GOPATH=`pwd`
 
-./bin/srv &
+./bin/app &
 
-inotifywait -m -r -e close_write src/ | while read line
+inotifywait -m -r -e close_write src/ --exclude '~.*' | while read line
 do 
-	go build -o bin/srv app && pkill srv && ./bin/srv &
+	go build -o bin/app app && pkill app && ./bin/app &
 done
-
